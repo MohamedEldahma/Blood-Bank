@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.fragment.homscreen.InformationNavigationFragment">
+
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/album_dp_35"
+        android:background="@color/albumSelectorNormal">
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/creet_new_acount"
+                android:textSize="@dimen/album_dp_20"
+
+
+                />
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <EditText
+        android:id="@+id/info_edit_name"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/album_dp_40"
+        android:background="@color/albumFontLight"
+        android:inputType="text"
+        android:hint="@string/the_name"
+        android:paddingEnd="@dimen/album_dp_10"
+        android:layout_marginEnd="@dimen/album_dp_10"
+        android:layout_marginStart="@dimen/album_dp_10"
+        android:layout_marginTop="@dimen/album_dp_6"
+        android:textAppearance="?android:textAppearanceMedium"
+
+        />
+    <EditText
+        android:id="@+id/info_edit_email"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/album_dp_40"
+        android:background="@color/albumFontLight"
+        android:inputType="textEmailAddress"
+        android:hint="@string/email"
+        android:paddingEnd="@dimen/album_dp_10"
+        android:layout_marginEnd="@dimen/album_dp_10"
+        android:layout_marginStart="@dimen/album_dp_10"
+        android:layout_marginTop="@dimen/album_dp_6"
+        android:textAppearance="?android:textAppearanceMedium"
+
+        />
+
+    <EditText
+        android:id="@+id/info_edit_birce_date"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/album_dp_40"
+        android:layout_marginEnd="@dimen/album_dp_10"
+        android:layout_marginStart="@dimen/album_dp_10"
+        android:layout_marginTop="@dimen/album_dp_6"
+        android:background="@color/albumFontLight"
+        android:hint="@string/pircday_date"
+        android:padding="@dimen/album_dp_6"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:drawableLeft="@drawable/ic_calendr_date"
+        android:clickable="false"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/album_dp_40"
+        android:background="@color/albumFontLight"
+        android:layout_marginEnd="@dimen/album_dp_10"
+        android:layout_marginStart="@dimen/album_dp_10"
+        android:layout_marginTop="@dimen/album_dp_6"
+        android:clickable="false"
+
+        >
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/info_spin_bloodtyp"
+            android:layout_alignParentLeft="true"
+            />
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/info_lastdate_typ"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/album_dp_40"
+        android:background="@color/albumFontLight"
+        android:hint="@string/last_dat_todonat"
+        android:padding="@dimen/album_dp_6"
+        android:layout_marginEnd="@dimen/album_dp_10"
+        android:layout_marginStart="@dimen/album_dp_10"
+        android:layout_marginTop="@dimen/album_dp_10"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:drawableLeft="@drawable/ic_calendr_date"
+        android:clickable="true"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/album_dp_40"
+        android:background="@color/albumFontLight"
+        android:layout_marginEnd="@dimen/album_dp_10"
+        android:layout_marginStart="@dimen/album_dp_10"
+        android:layout_marginTop="@dimen/album_dp_6"
+        >
+        <Spinner
+            android:id="@+id/info_spin_governorat"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/album_dp_40"
+        android:background="@color/albumFontLight"
+        android:layout_marginEnd="@dimen/album_dp_10"
+        android:layout_marginStart="@dimen/album_dp_10"
+        android:layout_marginTop="@dimen/album_dp_6"
+        >
+        <Spinner
+            android:id="@+id/info_spin_city"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:hint="@string/city"
+            android:layout_alignParentLeft="true"
+            android:spinnerMode="dropdown" />
+    </RelativeLayout>
+    <EditText
+        android:id="@+id/info_edit_phonnumber"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/album_dp_40"
+        android:background="@color/albumFontLight"
+        android:hint="@string/phon_numpet"
+        android:paddingEnd="@dimen/album_dp_10"
+        android:layout_marginEnd="@dimen/album_dp_10"
+        android:layout_marginStart="@dimen/album_dp_10"
+        android:layout_marginTop="@dimen/album_dp_6"
+        android:textAppearance="?android:textAppearanceMedium"
+
+        />
+    <EditText
+        android:id="@+id/info_edit_password"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/album_dp_40"
+        android:background="@color/albumFontLight"
+        android:hint="@string/enter_password"
+        android:paddingEnd="@dimen/album_dp_10"
+        android:layout_marginEnd="@dimen/album_dp_10"
+        android:layout_marginStart="@dimen/album_dp_10"
+        android:layout_marginTop="@dimen/album_dp_6"
+        />
+    <EditText
+        android:id="@+id/edit_confirmpassword"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/album_dp_40"
+        android:background="@color/albumFontLight"
+        android:hint="@string/confirm_password"
+        android:paddingEnd="@dimen/album_dp_10"
+        android:layout_marginEnd="@dimen/album_dp_10"
+        android:layout_marginStart="@dimen/album_dp_10"
+        android:layout_marginTop="@dimen/album_dp_6"
+        android:textAppearance="?android:textAppearanceMedium"
+        />
+
+
+    <Button
+        android:id="@+id/btt_update_info"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/album_dp_6"
+        android:text="@string/info_updat"
+        />
+
+
+
+
+</LinearLayout>
+</ScrollView>

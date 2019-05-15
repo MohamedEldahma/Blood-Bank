@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/durban_White"
+    tools:context=".ui.fragment.homscreen.homnavigation.ContactUsFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="94dp"
+        android:layout_height="83dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/album_dp_10"
+        android:background="@drawable/ic_logo" />
+    <TextView
+        android:id="@+id/Phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Person_phone_number"
+        android:layout_marginEnd="@dimen/album_dp_10"
+        android:layout_marginStart="@dimen/album_dp_10"
+        android:layout_marginTop="@dimen/album_dp_10"
+        android:textColor="@color/albumColorPrimaryBlack"
+
+        />
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/email"
+        android:layout_margin="@dimen/album_dp_10"
+        android:textColor="@color/albumColorPrimaryBlack"
+
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/album_dp_10"
+
+        >
+        <com.yanzhenjie.album.widget.SquareImageView
+            android:layout_width="@dimen/album_dp_40"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_facbook"
+            android:layout_marginEnd="@dimen/album_dp_20"
+            />
+        <com.yanzhenjie.album.widget.SquareImageView
+            android:layout_width="@dimen/album_dp_40"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_twiter"
+            android:layout_marginEnd="@dimen/album_dp_20"
+
+            />
+        <com.yanzhenjie.album.widget.SquareImageView
+            android:layout_width="@dimen/album_dp_40"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_youtube"
+            android:layout_marginEnd="@dimen/album_dp_20"
+
+            />
+        <com.yanzhenjie.album.widget.SquareImageView
+            android:layout_width="@dimen/album_dp_40"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_instgram"
+            android:layout_marginEnd="@dimen/album_dp_20"
+
+            />
+        <com.yanzhenjie.album.widget.SquareImageView
+            android:layout_width="@dimen/album_dp_40"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_whatsup"
+            android:layout_marginEnd="@dimen/album_dp_20"
+
+            />
+
+        <com.yanzhenjie.album.widget.SquareImageView
+            android:layout_width="@dimen/album_dp_40"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_gmail"
+
+            />
+
+
+
+
+
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBlueDark"
+        android:text="تواصل معنا"
+        android:textColor="@color/durban_White"
+        android:gravity="center"
+        android:padding="@dimen/album_dp_10"
+        android:layout_marginTop="@dimen/album_dp_10"
+        />
+
+
+    <EditText
+        android:id="@+id/edit_name_contactus"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/album_dp_40"
+        android:background="@color/albumFontLight"
+        android:inputType="text"
+        android:hint="@string/the_name"
+        android:paddingEnd="@dimen/album_dp_10"
+        android:layout_marginEnd="@dimen/album_dp_10"
+        android:layout_marginStart="@dimen/album_dp_10"
+        android:layout_marginTop="@dimen/album_dp_10"
+        android:textAppearance="?android:textAppearanceMedium"
+
+        />
+
+    <EditText
+        android:id="@+id/edit_email_contactus"
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:layout_marginEnd="@dimen/album_dp_10"
+        android:layout_marginStart="@dimen/album_dp_10"
+        android:layout_marginTop="@dimen/album_dp_6"
+        android:background="@color/albumFontLight"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        android:paddingEnd="@dimen/album_dp_10"
+        android:textAppearance="?android:textAppearanceMedium"
+
+        />
+    <EditText
+        android:id="@+id/edit_phonnumber_contactus"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/album_dp_40"
+        android:background="@color/albumFontLight"
+        android:hint="@string/phon_numpet"
+        android:paddingEnd="@dimen/album_dp_10"
+        android:layout_marginEnd="@dimen/album_dp_10"
+        android:layout_marginStart="@dimen/album_dp_10"
+        android:layout_marginTop="@dimen/album_dp_6"
+        android:textAppearance="?android:textAppearanceMedium"
+        />
+    <EditText
+        android:id="@+id/edit_adressmeessg_contactus"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/album_dp_40"
+        android:background="@color/albumFontLight"
+        android:hint="@string/adress_massg"
+        android:paddingEnd="@dimen/album_dp_10"
+        android:layout_marginEnd="@dimen/album_dp_10"
+        android:layout_marginStart="@dimen/album_dp_10"
+        android:layout_marginTop="@dimen/album_dp_6"
+        android:textAppearance="?android:textAppearanceMedium"
+        />
+    <EditText
+        android:id="@+id/edit_massg_contactus"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/durban_dp_70"
+        android:background="@color/albumFontLight"
+        android:hint="@string/edite_massg"
+        android:paddingEnd="@dimen/album_dp_10"
+        android:layout_marginEnd="@dimen/album_dp_10"
+        android:layout_marginStart="@dimen/album_dp_10"
+        android:layout_marginTop="@dimen/album_dp_6"
+        android:textAppearance="?android:textAppearanceMedium"
+        />
+
+    <Button
+        android:id="@+id/btt_send_mssg_contactus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btt_sendmssg_phonnmbe"
+        android:background="@color/colorBlueDark"
+        android:textColor="@color/durban_White"
+        android:layout_marginTop="@dimen/album_dp_10"
+        android:layout_marginEnd="@dimen/album_dp_10"
+        android:layout_marginStart="@dimen/album_dp_10"  />
+
+
+
+
+</LinearLayout>

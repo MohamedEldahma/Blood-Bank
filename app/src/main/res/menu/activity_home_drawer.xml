@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_my_information"
+            android:icon="@drawable/ic_my_information"
+            android:title="@string/my_informayion" />
+        <item
+            android:id="@+id/nav_siting_notifcation"
+            android:icon="@drawable/ic_siting_notivication"
+            android:title="@string/setin_ntification" />
+        <item
+            android:id="@+id/nav_favorit"
+            android:icon="@drawable/ic_favorit"
+            android:title="@string/favorit" />
+        <item
+            android:id="@+id/nav_main"
+            android:icon="@drawable/ic_main"
+            android:title="@string/main" />
+        <item
+            android:id="@+id/nav_instruc_user"
+            android:icon="@drawable/ic_instruct_user"
+            android:title="@string/instruc_user" />
+        <item
+        android:id="@+id/nav_contact_us"
+        android:icon="@drawable/ic_contact_us"
+        android:title="@string/contactus" />
+        <item
+        android:id="@+id/nav_about_app"
+        android:icon="@drawable/ic_about_app"
+        android:title="@string/aboutapp" />
+        <item
+        android:id="@+id/nav_evluat_app"
+        android:icon="@drawable/ic_evluat_app"
+        android:title="@string/evluatapp" />
+        <item
+            android:id="@+id/nav_sgin_out"
+            android:icon="@drawable/ic_sgin_out"
+            android:title="@string/sginout" />
+    </group>
+
+
+
+</menu>
