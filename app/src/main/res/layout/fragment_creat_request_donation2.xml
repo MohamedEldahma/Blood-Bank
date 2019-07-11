@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.CreatRequestDonation">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <EditText
+                android:id="@+id/request_name"
+                style="@style/make_request"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="10dp"
+                android:background="@color/durban_White"
+
+                android:hint="@string/edit_name" />
+
+            <EditText
+                android:id="@+id/request_age"
+                style="@style/make_request"
+                android:background="@color/durban_White"
+
+                android:layout_below="@+id/request_name"
+                android:layout_marginTop="@dimen/album_dp_10"
+                android:hint="@string/age" />
+
+
+            <Spinner
+                android:id="@+id/Request_Blood_type"
+                style="@style/make_request"
+                android:layout_below="@+id/request_age"
+                android:layout_marginTop="@dimen/album_dp_10"
+                android:hint="@string/blood_typ"
+                android:background="@color/durban_White"
+                />
+
+            <EditText
+                android:id="@+id/Number_Blood"
+                style="@style/make_request"
+                android:layout_below="@+id/Request_Blood_type"
+                android:layout_marginTop="@dimen/album_dp_10"
+                android:hint="@string/number"
+                android:background="@color/durban_White"
+                />
+
+
+            <EditText
+                android:id="@+id/Hospital_name"
+                style="@style/make_request"
+                android:layout_below="@+id/Number_Blood"
+                android:layout_marginTop="@dimen/album_dp_10"
+                android:hint="@string/hospital_name"
+                android:background="@color/durban_White"
+                />
+
+
+
+
+            <LinearLayout
+                android:id="@+id/Make_request_layout_Hospital_address"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/album_dp_50"
+                android:layout_below="@+id/Hospital_name"
+                android:layout_marginStart="@dimen/album_dp_10"
+                android:layout_marginTop="@dimen/album_dp_10"
+                android:layout_marginEnd="@dimen/album_dp_10"
+                android:background="@color/durban_White"
+                android:orientation="horizontal">
+
+
+                <Button
+                    android:id="@+id/location_Hospital"
+                    android:layout_width="@dimen/album_dp_50"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_location_black_24dp"
+                    android:layout_marginStart="@dimen/album_dp_6"
+
+                     />
+
+                <EditText
+                    android:id="@+id/Address_hospital"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/album_dp_6"
+                    android:hint="@string/hospital_address"
+                    android:background="@color/durban_White"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/Make_Request_layout_cantry"
+                style="@style/make_request"
+                android:layout_below="@+id/Make_request_layout_Hospital_address"
+                android:layout_marginTop="@dimen/album_dp_10"
+                android:background="@color/durban_White"
+
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/Spinner_Cantry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                </Spinner>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/Make_Request_layout_cities"
+                style="@style/make_request"
+                android:layout_below="@+id/Make_Request_layout_cantry"
+                android:layout_marginTop="@dimen/album_dp_10"
+                android:orientation="horizontal"
+                android:background="@color/durban_White"
+
+
+                >
+
+                <Spinner
+                    android:id="@+id/Spinner_Cities"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                </Spinner>
+
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/Phone_Number"
+                style="@style/make_request"
+                android:layout_below="@+id/Make_Request_layout_cities"
+                android:layout_marginTop="@dimen/album_dp_10"
+                android:hint="@string/phon_numpet"
+                android:background="@color/durban_White"
+                />
+
+
+            <EditText
+                android:id="@+id/Request_notes"
+                style="@style/make_request"
+                android:layout_height="@dimen/album_dp_100"
+                android:layout_below="@+id/Phone_Number"
+                android:layout_marginTop="@dimen/album_dp_10"
+                android:hint="@string/comments"
+                android:background="@color/durban_White"
+                />
+
+            <Button
+                android:id="@+id/btn_send_request"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Request_notes"
+                android:layout_margin="@dimen/album_dp_10"
+                android:background="@color/colorBlueDark"
+                android:text="@string/send_request"
+                android:textColor="@color/durban_White" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+</FrameLayout>

@@ -1,4 +1,4 @@
-package com.example.pr_pro.newbloodapplication.ui.fragment.homscreen;
+package com.example.pr_pro.newbloodapplication.ui.fragment.homscreen.homnavigation;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -41,7 +41,6 @@ import static com.example.pr_pro.newbloodapplication.helper.HelperLogin.verbose;
 import static com.example.pr_pro.newbloodapplication.helper.SharedPreferencesManger.LoadStringData;
 import static com.example.pr_pro.newbloodapplication.ui.Constant.SharedPreferenceKeys.UserKeys.API_TOKEN;
 import static com.example.pr_pro.newbloodapplication.ui.Constant.SharedPreferenceKeys.UserKeys.BIRTH_DATE;
-import static com.example.pr_pro.newbloodapplication.ui.Constant.SharedPreferenceKeys.UserKeys.CITY_ID;
 import static com.example.pr_pro.newbloodapplication.ui.Constant.SharedPreferenceKeys.UserKeys.DONATION_LAST_DATE;
 import static com.example.pr_pro.newbloodapplication.ui.Constant.SharedPreferenceKeys.UserKeys.EMAIL;
 import static com.example.pr_pro.newbloodapplication.ui.Constant.SharedPreferenceKeys.UserKeys.PHONE;

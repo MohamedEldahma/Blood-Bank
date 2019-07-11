@@ -5,8 +5,8 @@ package com.example.pr_pro.newbloodapplication.data.rest;
 import com.example.pr_pro.newbloodapplication.data.model.bloodtypes.BloodTypes;
 import com.example.pr_pro.newbloodapplication.data.model.cities.Cities;
 import com.example.pr_pro.newbloodapplication.data.model.contactus.ContactUs;
+import com.example.pr_pro.newbloodapplication.data.model.creatdonationrequest.CreatDonationRequest;
 import com.example.pr_pro.newbloodapplication.data.model.donation_request.DonationRequest;
-import com.example.pr_pro.newbloodapplication.data.model.donation_request_creat.DonationRequestCreat;
 import com.example.pr_pro.newbloodapplication.data.model.donationrequests.DonationRequests;
 import com.example.pr_pro.newbloodapplication.data.model.getprofiledata.GetProfileData;
 import com.example.pr_pro.newbloodapplication.data.model.governorates.Governorates;
@@ -105,11 +105,18 @@ public interface ModelApiServices {
 
     @POST("donation-request/create")
     @FormUrlEncoded
-    Call<DonationRequestCreat> addDonationRequestCreate(@Field("api_token") String api_token, @Field("patient_name") String patient_name, @Field("patient_age") String patient_age
-                                   , @Field("blood_type") String blood_type, @Field("bags_num") int bags_num, @Field("hospital_name") String hospital_name
-                                   , @Field("hospital_address") String hospital_address
-                                   , @Field("city_id") int city_id, @Field("phone") String phone, @Field("notes") String notes
-                                   , @Field("latitude") double latitude, @Field("longitude") double longitude );
+    Call<CreatDonationRequest> addDonationRequestCreate(@Field("api_token") String api_token
+                                                        , @Field("patient_name") String patient_name
+                                                        , @Field("patient_age") String patient_age
+                                                        , @Field("blood_type") String blood_type
+                                                        , @Field("bags_num") String bags_num
+                                                        , @Field("hospital_name") String hospital_name
+                                                        , @Field("hospital_address") String hospital_address
+                                                        , @Field("city_id") int city_id
+                                                        , @Field("phone") String phone
+                                                        , @Field("notes") String notes
+                                                        , @Field("latitude") double latitude
+                                                         , @Field("longitude") double longitude );
 
 
     @GET("donation-requests")
@@ -117,7 +124,7 @@ public interface ModelApiServices {
 //                                               , @Query("page") int page);
 
     @GET("donation-request")
-    Call<DonationRequest> getDonationRequest(@Query("api_token") String api_token, @Query("donation_id") String donation_id);
+    Call<DonationRequest> getDonationRequestDetail(@Query("api_token") String api_token, @Query("donation_id") String donation_id);
 
 
     @GET("posts")

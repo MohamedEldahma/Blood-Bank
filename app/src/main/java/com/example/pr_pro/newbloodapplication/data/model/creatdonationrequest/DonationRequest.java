@@ -1,10 +1,10 @@
 
-package com.example.pr_pro.newbloodapplication.data.model.donation_request_creat;
+package com.example.pr_pro.newbloodapplication.data.model.creatdonationrequest;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class DonationRequestCreatData {
+public class DonationRequest {
 
     @SerializedName("patient_name")
     @Expose
@@ -12,9 +12,9 @@ public class DonationRequestCreatData {
     @SerializedName("patient_age")
     @Expose
     private String patientAge;
-    @SerializedName("blood_type")
+    @SerializedName("blood_type_id")
     @Expose
-    private String bloodType;
+    private String bloodTypeId;
     @SerializedName("bags_num")
     @Expose
     private String bagsNum;
@@ -54,6 +54,9 @@ public class DonationRequestCreatData {
     @SerializedName("city")
     @Expose
     private City city;
+    @SerializedName("blood_type")
+    @Expose
+    private BloodType bloodType;
 
     public String getPatientName() {
         return patientName;
@@ -71,12 +74,12 @@ public class DonationRequestCreatData {
         this.patientAge = patientAge;
     }
 
-    public String getBloodType() {
-        return bloodType;
+    public String getBloodTypeId() {
+        return bloodTypeId;
     }
 
-    public void setBloodType(String bloodType) {
-        this.bloodType = bloodType;
+    public void setBloodTypeId(String bloodTypeId) {
+        this.bloodTypeId = bloodTypeId;
     }
 
     public String getBagsNum() {
@@ -181,6 +184,14 @@ public class DonationRequestCreatData {
 
     public void setCity(City city) {
         this.city = city;
+    }
+
+    public BloodType getBloodType() {
+        return bloodType;
+    }
+
+    public void setBloodType(BloodType bloodType) {
+        this.bloodType = bloodType;
     }
 
 }

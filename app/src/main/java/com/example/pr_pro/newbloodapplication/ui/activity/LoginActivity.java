@@ -20,5 +20,6 @@ public class LoginActivity extends AppCompatActivity {
 
         HelpeFragmentMethod.replaceFrag(loginFragment,getSupportFragmentManager(),R.id.fram_login_activity);
 
+
     }
 }

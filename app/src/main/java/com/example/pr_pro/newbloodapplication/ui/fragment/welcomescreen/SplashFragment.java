@@ -35,7 +35,7 @@ public class SplashFragment extends Fragment {
 
                 InformationFragment informationFragment = new InformationFragment();
 
-              HelpeFragmentMethod.replaceFrag(informationFragment,getActivity().getSupportFragmentManager(),R.id.frame_splash,null,null);
+              HelpeFragmentMethod.replaceFrag(informationFragment,getActivity().getSupportFragmentManager(),R.id.frame_splash);
             }
         }, SPLASH_DISPLAY_LENGTH);
 

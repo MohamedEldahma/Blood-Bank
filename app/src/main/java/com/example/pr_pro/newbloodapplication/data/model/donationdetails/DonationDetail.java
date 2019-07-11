@@ -1,10 +1,10 @@
 
-package com.example.pr_pro.newbloodapplication.data.model.donation_request_creat;
+package com.example.pr_pro.newbloodapplication.data.model.donationdetails;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class DonationRequestCreat {
+public class DonationDetail {
 
     @SerializedName("status")
     @Expose
@@ -14,7 +14,7 @@ public class DonationRequestCreat {
     private String msg;
     @SerializedName("data")
     @Expose
-    private DonationRequestCreatData data;
+    private DonationDetailData data;
 
     public Integer getStatus() {
         return status;
@@ -32,12 +32,12 @@ public class DonationRequestCreat {
         this.msg = msg;
     }
 
-    public DonationRequestCreatData getData() {
+    public DonationDetailData getData() {
         return data;
     }
 
-    public void setData(DonationRequestCreatData donationRequestCreatData) {
-        this.data = donationRequestCreatData;
+    public void setData(DonationDetailData data) {
+        this.data = data;
     }
 
 }

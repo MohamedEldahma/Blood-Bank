@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.pr_pro.newbloodapplication.R;
 import com.example.pr_pro.newbloodapplication.data.model.donationrequests.DonationRequestsDatum;
+import com.example.pr_pro.newbloodapplication.ui.activity.InformationRequestDetailActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.example.pr_pro.newbloodapplication.helper.HelpeFragmentMethod.intentWithExtra;
 import static com.example.pr_pro.newbloodapplication.helper.HelpeFragmentMethod.intentWithPhone;
 
 public class RequesteBloodRecyclrView extends RecyclerView.Adapter<RequesteBloodRecyclrView.ViewHolder> {
@@ -53,13 +55,13 @@ public class RequesteBloodRecyclrView extends RecyclerView.Adapter<RequesteBlood
                intentWithPhone(context,donationRequestsData.getPhone());
            }
        });
-//       viewHolder.detailBotton.setOnClickListener(new View.OnClickListener() {
-//           @Override
-//           public void onClick(View v) {
-//               String donationId=donationRequestsDatum.getId();
-//               intentWithExtra(context, RequestDetailsActivity.class, "donation_id", donationID);
-//           }
-//       });
+      viewHolder.detailBotton.setOnClickListener(new View.OnClickListener() {
+           @Override
+          public void onClick(View v) {
+               String donationId = String.valueOf(donationRequestsData.getId());
+               intentWithExtra(context, InformationRequestDetailActivity.class, "donation_id", donationId);
+           }
+       });
     }
 
     @Override
