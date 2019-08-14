@@ -4,7 +4,7 @@ package com.example.pr_pro.newbloodapplication.data.model.creatdonationrequest;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class BloodType {
+public class BloodTypeCreatRequest {
 
     @SerializedName("id")
     @Expose

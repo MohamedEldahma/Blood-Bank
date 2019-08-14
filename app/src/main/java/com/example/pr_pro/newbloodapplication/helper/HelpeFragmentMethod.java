@@ -18,6 +18,14 @@ public class HelpeFragmentMethod {
         transaction.commit();
     }
 
+    public static void replaceFragId(Fragment fragment, FragmentManager supportFragmentManager, int id,String v) {
+        FragmentTransaction transaction = supportFragmentManager.beginTransaction();
+        transaction.replace(id, fragment,v);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
+
 
 
     public static void tosatShow(Context context, String message) {

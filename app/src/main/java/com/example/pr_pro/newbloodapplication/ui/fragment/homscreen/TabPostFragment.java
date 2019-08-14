@@ -1,4 +1,4 @@
-package com.example.pr_pro.newbloodapplication;
+package com.example.pr_pro.newbloodapplication.ui.fragment.homscreen;
 
 
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.pr_pro.newbloodapplication.R;
 import com.example.pr_pro.newbloodapplication.ui.fragment.homscreen.HomeFragment;
 
 import butterknife.BindView;

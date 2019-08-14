@@ -7,11 +7,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -33,7 +35,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static com.example.pr_pro.newbloodapplication.helper.SharedPreferencesManger.LoadBoolean;
 import static com.example.pr_pro.newbloodapplication.helper.SharedPreferencesManger.LoadIntegerData;
+import static com.example.pr_pro.newbloodapplication.helper.SharedPreferencesManger.LoadStringData;
 import static com.example.pr_pro.newbloodapplication.helper.SharedPreferencesManger.SaveData;
 import static com.example.pr_pro.newbloodapplication.helper.SharedPreferencesManger.intent;
 import static com.example.pr_pro.newbloodapplication.ui.Constant.SharedPreferenceKeys.UserKeys.API_TOKEN;
@@ -67,6 +71,10 @@ public class LoginFragment extends Fragment  {
     @BindView(R.id.pasword_text_id)
     EditText paswordTextId;
     private String api_token ;
+    private boolean Checked;
+    public static String KEY_IS_CHECK_BOX = "isCheckBox";
+    public static String Key_password = "password";
+     String password;
 
     public LoginFragment() {
         // Required empty public constructor
@@ -79,7 +87,14 @@ public class LoginFragment extends Fragment  {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_login, container, false);
         unbinder = ButterKnife.bind(this, view);
-        rememberUser();
+
+       rememberUser();
+        checkId.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                Checked = isChecked;
+            }
+        });
         bttLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,7 +103,7 @@ public class LoginFragment extends Fragment  {
                     return;
                 }
                 String phone = phoneNumberId.getText().toString();
-                String password=paswordTextId.getText().toString();
+                password=paswordTextId.getText().toString();
                 ModelApiServices modelApiServices = RetrofitClient.getClient().create(ModelApiServices.class);
 
                 Call<Login> call = modelApiServices.addLogin(phone,password);
@@ -106,7 +121,10 @@ public class LoginFragment extends Fragment  {
                                 String donationLastDate=response.body().getData().getClient().getDonationLastDate();
                                 String bloodType =String.valueOf(response.body().getData().getClient().getBloodType());
                                 String cityId =String.valueOf(response.body().getData().getClient().getCity());
-                                saveData(apiToken, name, email, phone, birthDate, donationLastDate, cityId, bloodType);
+                                password=paswordTextId.getText().toString();
+
+
+                                saveData(apiToken, name, email, phone, birthDate, donationLastDate, cityId, bloodType,password);
 //                              shardLoginData();
                             Intent logIntent = new Intent(getActivity(), HomeActivity.class);
                             startActivity(logIntent);
@@ -134,10 +152,22 @@ public class LoginFragment extends Fragment  {
 
 
     private void rememberUser() {
-        int remember = LoadIntegerData(getActivity(), REMEMBER_USER);
-        if (remember == 1) {
-            intent(getContext(), HomeActivity.class);
+
+        phoneNumberId.setText(LoadStringData(getActivity(), PHONE));
+        paswordTextId.setText(LoadStringData(getActivity(), password));
+
+        // check is checkBox is Checked
+        if (LoadBoolean(getActivity(), KEY_IS_CHECK_BOX, false)) {
+            Log.d("response", "true");
+            checkId.setChecked(true);
+        } else {
+            checkId.setChecked(false);
+            Log.d("response", "false");
+
         }
+
+
+
     }
 
     @Override
@@ -150,7 +180,7 @@ public class LoginFragment extends Fragment  {
 
     }
         private void saveData(String apiToken, String name, String email, String phone,
-                          String birthDate, String donationLastDate, String cityId, String bloodType) {
+                          String birthDate, String donationLastDate, String cityId, String bloodType ,String password) {
 
         SaveData(getActivity(), API_TOKEN, apiToken);
         SaveData(getActivity(), USER_NAME, name);
@@ -160,6 +190,7 @@ public class LoginFragment extends Fragment  {
         SaveData(getActivity(), DONATION_LAST_DATE, donationLastDate);
         SaveData(getActivity(), CITY_ID, cityId);
         SaveData(getActivity(), BLOOD_TYPE, bloodType);
+        SaveData(getActivity(), KEY_IS_CHECK_BOX, Checked);
 
     }
 

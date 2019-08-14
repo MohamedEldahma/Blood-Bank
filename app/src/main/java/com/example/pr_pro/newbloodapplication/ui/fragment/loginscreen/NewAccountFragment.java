@@ -18,8 +18,8 @@ import android.widget.Toast;
 
 import com.example.pr_pro.newbloodapplication.R;
 
+import com.example.pr_pro.newbloodapplication.data.model.bloodtypes.BloodDatum;
 import com.example.pr_pro.newbloodapplication.data.model.bloodtypes.BloodTypes;
-import com.example.pr_pro.newbloodapplication.data.model.bloodtypes.BloodTypesDatum;
 import com.example.pr_pro.newbloodapplication.data.model.cities.Cities;
 import com.example.pr_pro.newbloodapplication.data.model.cities.CitiesDatum;
 import com.example.pr_pro.newbloodapplication.data.model.governorates.Governorates;
@@ -47,10 +47,8 @@ import retrofit2.Response;
 import static com.example.pr_pro.newbloodapplication.helper.HelperLogin.error;
 import static com.example.pr_pro.newbloodapplication.helper.HelperLogin.verbose;
 import static com.example.pr_pro.newbloodapplication.helper.SharedPreferencesManger.SaveData;
-import static com.example.pr_pro.newbloodapplication.helper.TokenContenApi.API_TOKEN;
+import static com.example.pr_pro.newbloodapplication.ui.Constant.SharedPreferenceKeys.UserKeys.API_TOKEN;
 import static com.example.pr_pro.newbloodapplication.ui.Constant.SharedPreferenceKeys.UserKeys.BIRTH_DATE;
-import static com.example.pr_pro.newbloodapplication.ui.Constant.SharedPreferenceKeys.UserKeys.BLOOD_TYPE;
-import static com.example.pr_pro.newbloodapplication.ui.Constant.SharedPreferenceKeys.UserKeys.CITY_ID;
 import static com.example.pr_pro.newbloodapplication.ui.Constant.SharedPreferenceKeys.UserKeys.DONATION_LAST_DATE;
 import static com.example.pr_pro.newbloodapplication.ui.Constant.SharedPreferenceKeys.UserKeys.EMAIL;
 import static com.example.pr_pro.newbloodapplication.ui.Constant.SharedPreferenceKeys.UserKeys.PHONE;
@@ -118,7 +116,7 @@ public class NewAccountFragment extends Fragment {
     modelApiServices.getBloodTyp().enqueue(new Callback<BloodTypes>() {
         @Override
         public void onResponse(Call<BloodTypes> call, Response<BloodTypes> response) {
-            List<BloodTypesDatum> bloodTypesData=response.body().getData();
+            List<BloodDatum> bloodTypesData=response.body().getData();
             ArrayList<String>typBlood=new ArrayList<>();
             final ArrayList<Integer>idBlood=new ArrayList<Integer>();
             typBlood.add(getString(R.string.blood_typ));

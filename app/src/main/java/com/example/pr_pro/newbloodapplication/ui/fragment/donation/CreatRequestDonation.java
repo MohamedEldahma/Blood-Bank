@@ -1,9 +1,8 @@
-package com.example.pr_pro.newbloodapplication.ui;
+package com.example.pr_pro.newbloodapplication.ui.fragment.donation;
 
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,8 +16,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.pr_pro.newbloodapplication.R;
+import com.example.pr_pro.newbloodapplication.data.model.bloodtypes.BloodDatum;
 import com.example.pr_pro.newbloodapplication.data.model.bloodtypes.BloodTypes;
-import com.example.pr_pro.newbloodapplication.data.model.bloodtypes.BloodTypesDatum;
 import com.example.pr_pro.newbloodapplication.data.model.cities.Cities;
 import com.example.pr_pro.newbloodapplication.data.model.cities.CitiesDatum;
 import com.example.pr_pro.newbloodapplication.data.model.creatdonationrequest.CreatDonationRequest;
@@ -27,6 +26,7 @@ import com.example.pr_pro.newbloodapplication.data.model.governorates.Governorat
 import com.example.pr_pro.newbloodapplication.data.rest.ModelApiServices;
 import com.example.pr_pro.newbloodapplication.data.rest.RetrofitClient;
 import com.example.pr_pro.newbloodapplication.helper.HelpeFragmentMethod;
+import com.example.pr_pro.newbloodapplication.ui.activity.MapLocationActivity;
 import com.example.pr_pro.newbloodapplication.ui.fragment.homscreen.DonationRequestFragment;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
@@ -50,12 +50,14 @@ import static com.example.pr_pro.newbloodapplication.helper.HelperLogin.isNetwor
 import static com.example.pr_pro.newbloodapplication.helper.HelperLogin.verbose;
 import static com.example.pr_pro.newbloodapplication.helper.SharedPreferencesManger.LoadStringData;
 import static com.example.pr_pro.newbloodapplication.ui.Constant.SharedPreferenceKeys.UserKeys.API_TOKEN;
+import static com.example.pr_pro.newbloodapplication.ui.activity.MapLocationActivity.latitude;
+import static com.example.pr_pro.newbloodapplication.ui.activity.MapLocationActivity.longitude;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class CreatRequestDonation extends Fragment {
-    private static final int PLACE_PICKER_REQUEST = 100;
+//    private static final int PLACE_PICKER_REQUEST = 100;
 
 
     @BindView(R.id.request_name)
@@ -90,11 +92,10 @@ public class CreatRequestDonation extends Fragment {
     Button btnSendRequest;
     Unbinder unbinder;
     ModelApiServices modelApiServices;
-    private String bloodTyp;
-    private  int startCityId=0;
-     private     double lon;
-     private     double lat;
-     private     String api_token ;
+    private    String  bloodTyp ;
+    private    int startCityId;
+    private     String api_token ;
+    int bagsNum;
 
     public CreatRequestDonation() {
         // Required empty public constructor
@@ -108,7 +109,7 @@ public class CreatRequestDonation extends Fragment {
         View view = inflater.inflate(R.layout.fragment_creat_request_donation2, container, false);
         unbinder = ButterKnife.bind(this, view);
         modelApiServices= RetrofitClient.getClient().create(ModelApiServices.class);
-        api_token = "Zz9HuAjCY4kw2Ma2XaA6x7T5O3UODws1UakXI9vgFVSoY3xUXYOarHX2VH27";
+        api_token = "YbAaJa3SuvnrvuctylVgryH97RqaV4gh2t0FxMf6igMncu9sHpw7ICGW6wUs";
 //        api_token="YbAaJa3SuvnrvuctylVgryH97RqaV4gh2t0FxMf6igMncu9sHpw7ICGW6wUs";
 
         spinnerPloodTyp();
@@ -123,14 +124,14 @@ public class CreatRequestDonation extends Fragment {
 
         String name = requestName.getText().toString();
         String age = requestAge.getText().toString();
-        String bagsNum = NumberBlood.getText().toString();
+        bagsNum = Integer.parseInt(NumberBlood.getText().toString());
         String hospitalAddress = AddressHospital.getText().toString();
         String phoneNumber = PhoneNumber.getText().toString();
         String comment = RequestNotes.getText().toString();
         String hospitalName = HospitalName.getText().toString();
 
-        modelApiServices.addDonationRequestCreate(api_token,name,age,bloodTyp, bagsNum,hospitalName,hospitalAddress,
-                    startCityId,phoneNumber,comment,lat,lon).enqueue(new Callback<CreatDonationRequest>() {
+        modelApiServices.addDonationRequestCreate(api_token,name,age, bloodTyp, bagsNum,hospitalName,hospitalAddress,
+                    startCityId,phoneNumber,comment,31.7655,30.7541).enqueue(new Callback<CreatDonationRequest>() {
             @Override
             public void onResponse(Call<CreatDonationRequest> call, Response<CreatDonationRequest> response) {
                 if (response.body().getStatus() == 1){
@@ -154,7 +155,7 @@ public class CreatRequestDonation extends Fragment {
         modelApiServices.getBloodTyp().enqueue(new Callback<BloodTypes>() {
             @Override
             public void onResponse(Call<BloodTypes> call, Response<BloodTypes> response) {
-                List<BloodTypesDatum> bloodTypesData=response.body().getData();
+                List<BloodDatum> bloodTypesData=response.body().getData();
                 ArrayList<String> typBlood=new ArrayList<>();
                 final ArrayList<Integer>idBlood=new ArrayList<Integer>();
                 typBlood.add(getString(R.string.blood_typ));
@@ -175,7 +176,7 @@ public class CreatRequestDonation extends Fragment {
                         @Override
                         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                             verbose("onItemSelected: " + parent.getItemAtPosition(position));
-                            bloodTyp = String.valueOf(parent.getItemAtPosition(position));
+                            bloodTyp = (String) parent.getItemAtPosition(position);
                         }
 
                         @Override
@@ -308,9 +309,9 @@ public class CreatRequestDonation extends Fragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.location_Hospital:
-//                Intent intent = new Intent(getActivity(), MapLocationActivity.class);
-//                startActivity(intent);
-                openPlacePicker();
+                startActivity(new Intent(getActivity(), MapLocationActivity.class));
+
+//                openPlacePicker();
 
                 break;
             case R.id.btn_send_request:
@@ -319,33 +320,33 @@ public class CreatRequestDonation extends Fragment {
         }
     }
 
-    private void openPlacePicker() {
-        PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
-        try {
-            startActivityForResult(builder.build(getActivity()), PLACE_PICKER_REQUEST);
-        } catch (GooglePlayServicesRepairableException e) {
-            e.printStackTrace();
-        } catch (GooglePlayServicesNotAvailableException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (requestCode == PLACE_PICKER_REQUEST) {
-            if (resultCode == RESULT_OK) {
-                Place place = PlacePicker.getPlace(getActivity(), data);
-                lat = place.getLatLng().latitude;
-                lon = place.getLatLng().longitude;
-
-                String placeAddress = String.valueOf(place.getAddress());
-                AddressHospital.setText(placeAddress);
-
-
-                verbose("location longitude and latitude: " + lon + ", " + lat);
-            }
-        }
-
-    }
+//    private void openPlacePicker() {
+//        PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
+//        try {
+//            startActivityForResult(builder.build(getActivity()), PLACE_PICKER_REQUEST);
+//        } catch (GooglePlayServicesRepairableException e) {
+//            e.printStackTrace();
+//        } catch (GooglePlayServicesNotAvailableException e) {
+//            e.printStackTrace();
+//        }
+//
+//    }
+//
+//    @Override
+//    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        if (requestCode == PLACE_PICKER_REQUEST) {
+//            if (resultCode == RESULT_OK) {
+//                Place place = PlacePicker.getPlace(getActivity(), data);
+//                lat = place.getLatLng().latitude;
+//                lon = place.getLatLng().longitude;
+//
+//                String placeAddress = String.valueOf(place.getAddress());
+//                AddressHospital.setText(placeAddress);
+//
+//
+//                verbose("location longitude and latitude: " + lon + ", " + lat);
+//            }
+//        }
+//
+//    }
 }

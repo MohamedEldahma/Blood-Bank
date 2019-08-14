@@ -1,11 +1,10 @@
 
-package com.example.pr_pro.newbloodapplication.data.model.bloodtypes;
+package com.example.pr_pro.newbloodapplication.data.model.listofnotification;
 
-import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class BloodTypes {
+public class ListOfNotification {
 
     @SerializedName("status")
     @Expose
@@ -15,7 +14,7 @@ public class BloodTypes {
     private String msg;
     @SerializedName("data")
     @Expose
-    private List<BloodDatum> data = null;
+    private DataListNotification data;
 
     public Integer getStatus() {
         return status;
@@ -33,11 +32,11 @@ public class BloodTypes {
         this.msg = msg;
     }
 
-    public List<BloodDatum> getData() {
+    public DataListNotification getData() {
         return data;
     }
 
-    public void setData(List<BloodDatum> data) {
+    public void setData(DataListNotification data) {
         this.data = data;
     }
 

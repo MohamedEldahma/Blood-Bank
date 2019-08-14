@@ -18,7 +18,7 @@
 //import com.example.pr_pro.newbloodapplication.data.model.bloodtypes.BloodTypesDatum;
 //import com.example.pr_pro.newbloodapplication.data.model.cities.Cities;
 //import com.example.pr_pro.newbloodapplication.data.model.cities.CitiesDatum;
-//import com.example.pr_pro.newbloodapplication.data.model.donation_request_creat.DonationRequestCreat;
+//import com.example.pr_pro.newbloodapplication.data.model.creatdonationrequest.CreatDonationRequest;
 //import com.example.pr_pro.newbloodapplication.data.model.governorates.Governorates;
 //import com.example.pr_pro.newbloodapplication.data.model.governorates.GovernoratesDatum;
 //import com.example.pr_pro.newbloodapplication.data.rest.ModelApiServices;
@@ -42,12 +42,12 @@
 // */
 //public class CreatRequestDonationFragment extends Fragment {
 //
-//
 //    @BindView(R.id.name_editText)
 //    EditText nameEditText;
 //    @BindView(R.id.age_editText)
 //    EditText ageEditText;
-//
+//    @BindView(R.id.blood_typeSpinner)
+//    Spinner bloodTypeSpinner;
 //    @BindView(R.id.bags_number_editText)
 //    EditText bagsNumberEditText;
 //    @BindView(R.id.hospital_name_editText)
@@ -68,7 +68,7 @@
 //    Button sendButton;
 //    Unbinder unbinder;
 //
-//    String api_token ;
+//    String api_token;
 //    ModelApiServices modelApiServices;
 //    String bloodTyp;
 //    int startCityId;
@@ -94,18 +94,19 @@
 //        super.onDestroyView();
 //        unbinder.unbind();
 //    }
-//    public void spinnerPloodTyp(){
+//
+//    public void spinnerPloodTyp() {
 //        modelApiServices.getBloodTyp().enqueue(new Callback<BloodTypes>() {
 //            @Override
 //            public void onResponse(Call<BloodTypes> call, Response<BloodTypes> response) {
-//                List<BloodTypesDatum> bloodTypesData=response.body().getData();
-//                ArrayList<String> typBlood=new ArrayList<>();
-//                final ArrayList<Integer>idBlood=new ArrayList<Integer>();
+//                List<BloodTypesDatum> bloodTypesData = response.body().getData();
+//                ArrayList<String> typBlood = new ArrayList<>();
+//                final ArrayList<Integer> idBlood = new ArrayList<Integer>();
 //                typBlood.add(getString(R.string.blood_typ));
 //                idBlood.add(0);
-//                for (int i=0;i<bloodTypesData.size();i++){
+//                for (int i = 0; i < bloodTypesData.size(); i++) {
 //                    String bloodTypNAme = bloodTypesData.get(i).getName();
-//                    Integer bloodTypId  = bloodTypesData.get(i).getId();
+//                    Integer bloodTypId = bloodTypesData.get(i).getId();
 //                    typBlood.add(bloodTypNAme);
 //                    idBlood.add(bloodTypId);
 //
@@ -129,6 +130,7 @@
 //                    });
 //                }
 //            }
+//
 //            @Override
 //            public void onFailure(Call<BloodTypes> call, Throwable t) {
 //
@@ -138,8 +140,7 @@
 //    }
 //
 //
-//
-//    public void  creatRequest(){
+//    public void creatRequest() {
 //
 //        String name = nameEditText.getText().toString();
 //        String age = ageEditText.getText().toString();
@@ -149,18 +150,20 @@
 //        String comment = commentsEditText.getText().toString();
 //        String hospitalName = hospitalNameEditText.getText().toString();
 //
-//        modelApiServices.addDonationRequestCreate(api_token,name,age,bloodTyp, Integer.parseInt(bagsNum),hospitalName,hospitalAddress,
-//                    startCityId,phoneNumber,comment,lat,lon).enqueue(new Callback<DonationRequestCreat>() {
+//        modelApiServices.addDonationRequestCreate(api_token, name, age, bloodTyp, bagsNum, hospitalName, hospitalAddress,
+//                startCityId, phoneNumber, comment, lat, lon).enqueue(new Callback<CreatDonationRequest>() {
 //            @Override
-//            public void onResponse(Call<DonationRequestCreat> call, Response<DonationRequestCreat> response) {
-//                if (response.body().getStatus() == 1){
+//            public void onResponse(Call<CreatDonationRequest> call, Response<CreatDonationRequest> response) {
+//                if (response.body().getStatus() == 1) {
 //                    Toast.makeText(getContext(), "Your Donation Request Created", Toast.LENGTH_SHORT).show();
-//                }else {Toast.makeText(getContext(), "Your Donation Request Not Created", Toast.LENGTH_SHORT).show();}
+//                } else {
+//                    Toast.makeText(getContext(), "Your Donation Request Not Created", Toast.LENGTH_SHORT).show();
+//                }
 //
 //            }
 //
 //            @Override
-//            public void onFailure(Call<DonationRequestCreat> call, Throwable t) {
+//            public void onFailure(Call<CreatDonationRequest> call, Throwable t) {
 //                Toast.makeText(getContext(), "Your Donation Request Erorr", Toast.LENGTH_SHORT).show();
 //
 //            }
@@ -214,7 +217,6 @@
 //            @Override
 //            public void onFailure(Call<Governorates> call, Throwable t) {
 //                error("GavernoratesResponse Onfailure: " + t.getMessage());
-//
 //
 //
 //            }
@@ -274,9 +276,6 @@
 //                    }
 //                });
 //    }
-//
-//
-//
 //
 //
 //    @OnClick({R.id.my_locationButton, R.id.send_button})

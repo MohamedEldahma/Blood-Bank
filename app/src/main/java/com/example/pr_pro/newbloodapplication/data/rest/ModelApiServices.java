@@ -10,6 +10,7 @@ import com.example.pr_pro.newbloodapplication.data.model.donation_request.Donati
 import com.example.pr_pro.newbloodapplication.data.model.donationrequests.DonationRequests;
 import com.example.pr_pro.newbloodapplication.data.model.getprofiledata.GetProfileData;
 import com.example.pr_pro.newbloodapplication.data.model.governorates.Governorates;
+import com.example.pr_pro.newbloodapplication.data.model.listofnotification.ListOfNotification;
 import com.example.pr_pro.newbloodapplication.data.model.login.Login;
 import com.example.pr_pro.newbloodapplication.data.model.logs.Logs;
 import com.example.pr_pro.newbloodapplication.data.model.my_favourites.MyFavourites;
@@ -93,7 +94,7 @@ public interface ModelApiServices {
 
 
     @GET("notifications")
-    Call<Settings> getNotifications(@Query("api_token") String api_token);
+    Call<ListOfNotification> getNotifications(@Query("api_token") String api_token);
 
 
     @GET("notifications-count")
@@ -108,8 +109,8 @@ public interface ModelApiServices {
     Call<CreatDonationRequest> addDonationRequestCreate(@Field("api_token") String api_token
                                                         , @Field("patient_name") String patient_name
                                                         , @Field("patient_age") String patient_age
-                                                        , @Field("blood_type") String blood_type
-                                                        , @Field("bags_num") String bags_num
+                                                        , @Field("blood_type_id") String blood_type_id
+                                                        , @Field("bags_num") int bags_num
                                                         , @Field("hospital_name") String hospital_name
                                                         , @Field("hospital_address") String hospital_address
                                                         , @Field("city_id") int city_id
@@ -177,5 +178,7 @@ public interface ModelApiServices {
     Call<BloodTypes> getBloodTyp();
 
 
-    Call<NotificationSsettings> addNotificationsSettings(String apiToken, Object[] bloodArray, Object[] governratArray);
+    Call<NotificationSsettings> addNotificationsSettings(String apiToken,
+                                                         Object[] bloodArray,
+                                                         Object[] governratArray);
 }

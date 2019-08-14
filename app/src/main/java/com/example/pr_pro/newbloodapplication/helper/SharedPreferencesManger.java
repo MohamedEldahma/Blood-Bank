@@ -48,6 +48,16 @@ public class SharedPreferencesManger {
         }
     }
 
+    public static void SaveData(Activity activity, String data_Key, boolean data_Value) {
+        if (sharedPreferences != null) {
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean(data_Key, data_Value);
+            editor.apply();
+        } else {
+            setSharedPreferences(activity);
+        }
+    }
+
     public static String LoadStringData(Activity activity, String data_Key) {
         setSharedPreferences(activity);
         if (sharedPreferences != null) {
@@ -65,6 +75,16 @@ public class SharedPreferencesManger {
         }
 
         return sharedPreferences.getInt(data_Key, 0);
+    }
+
+    public static boolean LoadBoolean(Activity activity, String data_Key,boolean isCheckBox) {
+        if (sharedPreferences != null) {
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+        } else {
+            setSharedPreferences(activity);
+        }
+
+        return sharedPreferences.getBoolean(data_Key, false);
     }
 
     public static void intent(Context context, Class<?> cls) {

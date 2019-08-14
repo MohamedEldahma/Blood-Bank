@@ -56,7 +56,7 @@ public class DonationRequest {
     private City city;
     @SerializedName("blood_type")
     @Expose
-    private BloodType bloodType;
+    private BloodTypeCreatRequest bloodType;
 
     public String getPatientName() {
         return patientName;
@@ -186,11 +186,11 @@ public class DonationRequest {
         this.city = city;
     }
 
-    public BloodType getBloodType() {
+    public BloodTypeCreatRequest getBloodType() {
         return bloodType;
     }
 
-    public void setBloodType(BloodType bloodType) {
+    public void setBloodType(BloodTypeCreatRequest bloodType) {
         this.bloodType = bloodType;
     }
 

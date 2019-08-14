@@ -96,6 +96,9 @@
     <string name="location">الموقع</string>
     <string name="state">المدينه</string>
     <string name="title_activity_map_location">Map</string>
+    <string name="GPSAlertDialogMessage">GPS Alert Dialog Messg</string>
+    <string name="GPSAlertDialogTitle">GPS Alert Dialog Setting</string>
+    <string name="cancel">Cancel</string>
 
 
 </resources>

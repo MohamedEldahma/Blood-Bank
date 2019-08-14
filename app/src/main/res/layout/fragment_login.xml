@@ -14,27 +14,33 @@
         android:layout_marginTop="@dimen/album_dp_40"
         android:src="@drawable/ic_logo" />
 
+
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/album_dp_50"
         android:layout_below="@id/logo_id"
         android:layout_marginTop="@dimen/album_dp_10"
         android:layout_marginLeft="@dimen/album_dp_10"
         android:layout_marginRight="@dimen/album_dp_10"
         android:hint="@string/phon_numpet"
         android:inputType="number"
+        android:paddingEnd="@dimen/album_dp_10"
+        android:background="@color/durban_White"
         android:id="@+id/phone_number_id"
         />
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/album_dp_50"
         android:layout_below="@id/logo_id"
+        android:paddingEnd="@dimen/album_dp_10"
         android:layout_marginTop="@dimen/album_dp_10"
         android:layout_marginLeft="@dimen/album_dp_10"
         android:layout_marginRight="@dimen/album_dp_10"
         android:hint="@string/enter_password"
         android:inputType="number"
         android:id="@+id/pasword_text_id"
+        android:background="@color/durban_White"
+
         />
 
     <RelativeLayout
@@ -59,6 +65,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="end"
+            android:layout_marginTop="@dimen/album_dp_10"
 
             >
 
@@ -77,7 +84,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/album_dp_10"
+        android:layout_marginTop="@dimen/album_dp_15"
         android:layout_marginLeft="@dimen/album_dp_10"
         android:layout_marginRight="@dimen/album_dp_10"
         android:background="#00C853"

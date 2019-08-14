@@ -15,8 +15,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.example.pr_pro.newbloodapplication.R;
+import com.example.pr_pro.newbloodapplication.data.model.bloodtypes.BloodDatum;
 import com.example.pr_pro.newbloodapplication.data.model.bloodtypes.BloodTypes;
-import com.example.pr_pro.newbloodapplication.data.model.bloodtypes.BloodTypesDatum;
 import com.example.pr_pro.newbloodapplication.data.model.cities.Cities;
 import com.example.pr_pro.newbloodapplication.data.model.cities.CitiesDatum;
 import com.example.pr_pro.newbloodapplication.data.model.governorates.Governorates;
@@ -102,7 +102,7 @@ public class InformationNavigationFragment extends Fragment {
         modelApiServices.getBloodTyp().enqueue(new Callback<BloodTypes>() {
             @Override
             public void onResponse(Call<BloodTypes> call, Response<BloodTypes> response) {
-                List<BloodTypesDatum> bloodTypesData = response.body().getData();
+                List<BloodDatum> bloodTypesData = response.body().getData();
                 ArrayList<String> typBlood = new ArrayList<>();
                 final ArrayList<Integer> idBlood = new ArrayList<Integer>();
                 typBlood.add(getString(R.string.blood_typ));

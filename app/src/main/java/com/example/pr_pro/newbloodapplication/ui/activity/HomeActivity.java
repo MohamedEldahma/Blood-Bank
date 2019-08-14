@@ -16,9 +16,10 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.example.pr_pro.newbloodapplication.R;
-import com.example.pr_pro.newbloodapplication.TabPostFragment;
+import com.example.pr_pro.newbloodapplication.ui.fragment.homscreen.TabPostFragment;
 import com.example.pr_pro.newbloodapplication.helper.HelpeFragmentMethod;
-import com.example.pr_pro.newbloodapplication.ui.CreatRequestDonation;
+import com.example.pr_pro.newbloodapplication.ui.fragment.donation.CreatRequestDonation;
+import com.example.pr_pro.newbloodapplication.ui.fragment.homscreen.homnavigation.GetNotificationlistFragment;
 import com.example.pr_pro.newbloodapplication.ui.fragment.homscreen.homnavigation.InformationNavigationFragment;
 import com.example.pr_pro.newbloodapplication.ui.fragment.homscreen.homnavigation.AboutAppFragment;
 import com.example.pr_pro.newbloodapplication.ui.fragment.homscreen.homnavigation.ContactUsFragment;
@@ -136,8 +137,9 @@ public class HomeActivity extends AppCompatActivity
             toolbarTitle.setText("تعديل المعلومات");
             // Handle the camera action
         } else if (id == R.id.nav_siting_notifcation) {
-            NotificationSetingFragment notificationSetingFragment = new NotificationSetingFragment();
-            HelpeFragmentMethod.replaceFrag(notificationSetingFragment,getSupportFragmentManager(),R.id.fram_home);
+//            NotificationSetingFragment notificationSetingFragment = new NotificationSetingFragment();
+//            HelpeFragmentMethod.replaceFrag(notificationSetingFragment,getSupportFragmentManager(),R.id.fram_home);
+            HelpeFragmentMethod.replaceFrag(new GetNotificationlistFragment(),getSupportFragmentManager(),R.id.fram_home);
             toolbarTitle.setText("اعدادت الاشعارات");
 
         } else if (id == R.id.nav_favorit) {
